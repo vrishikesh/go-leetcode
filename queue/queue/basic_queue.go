@@ -28,3 +28,7 @@ func (q *Queue[T]) Len() int {
 func (q *Queue[T]) IsEmpty() bool {
 	return q.Len() == 0
 }
+
+func (q *Queue[T]) Iter() []T {
+	return *q
+}

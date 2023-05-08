@@ -3,14 +3,15 @@ package main
 import "leetcode/leetcode"
 
 func main() {
-	leetcode.PrintAllSubsequences([]int{1, 2, 1})
-	leetcode.PrintAllSSThatSumToK([]int{1, 2, 1}, 2)
-	leetcode.PrintTheFirstSSThatSumToK([]int{1, 2, 1}, 2)
-	leetcode.PrintTheCountOfSsThatSumToK([]int{1, 2, 1}, 2)
-	leetcode.PrintAllCombSubsequencesThatSumToK([]int{2, 3, 6, 7}, 7)
-	leetcode.NumSquaresDFS(12)
-	leetcode.NumSquaresDP(12)
-	leetcode.CombinationSum2([]int{10, 1, 2, 7, 6, 1, 5}, 8)
-	leetcode.PrintAllPermutationsMap([]int{1, 2, 3})
-	leetcode.PrintAllPermutationsSwap([3]int{1, 2, 3})
+	// leetcode.PrintAllSubsequences([]int{1, 2, 1})
+	// leetcode.PrintAllSSThatSumToK([]int{1, 2, 1}, 2)
+	// leetcode.PrintTheFirstSSThatSumToK([]int{1, 2, 1}, 2)
+	// leetcode.PrintTheCountOfSsThatSumToK([]int{1, 2, 1}, 2)
+	// leetcode.PrintAllCombSubsequencesThatSumToK([]int{2, 3, 6, 7}, 7)
+	// leetcode.NumSquaresDFS(12)
+	// leetcode.NumSquaresDP(12)
+	// leetcode.CombinationSum2([]int{10, 1, 2, 7, 6, 1, 5}, 8)
+	// leetcode.PrintAllPermutationsMap([]int{1, 2, 3})
+	// leetcode.PrintAllPermutationsSwap([3]int{1, 2, 3})
+	leetcode.NQueens(4)
 }
