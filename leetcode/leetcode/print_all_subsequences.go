@@ -3,7 +3,7 @@ package leetcode
 import (
 	"fmt"
 
-	"queue/queue"
+	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 func PrintAllSubsequences(s []int) {

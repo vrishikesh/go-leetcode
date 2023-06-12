@@ -39,7 +39,7 @@ func (this *LRUCache) Put(key int, value int) {
  * param_1 := obj .Get(key);
  * obj .Put(key,value);
  */
-func main() {
+func Cache() {
 	obj := Constructor(2)
 	obj.Put(2, 2)                                    // nil
 	obj.Put(1, 1)                                    // nil

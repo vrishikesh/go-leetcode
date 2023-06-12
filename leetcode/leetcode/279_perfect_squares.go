@@ -3,7 +3,8 @@ package leetcode
 import (
 	"fmt"
 	"math"
-	"queue/queue"
+
+	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 // DFS O(2^n)

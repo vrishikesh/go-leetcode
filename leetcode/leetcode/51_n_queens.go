@@ -2,8 +2,9 @@ package leetcode
 
 import (
 	"fmt"
-	"queue/queue"
 	"strings"
+
+	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 type Cell struct {

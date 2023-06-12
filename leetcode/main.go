@@ -1,6 +1,6 @@
 package main
 
-import "leetcode/leetcode"
+import "github.com/vrishikesh/go-leetcode/leetcode/leetcode"
 
 func main() {
 	// leetcode.PrintAllSubsequences([]int{1, 2, 1})

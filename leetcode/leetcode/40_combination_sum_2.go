@@ -2,8 +2,9 @@ package leetcode
 
 import (
 	"fmt"
-	"queue/queue"
 	"sort"
+
+	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 // Print all unique combinations of subsequences that sum to k and in lexicographically sorted order

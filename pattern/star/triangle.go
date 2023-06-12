@@ -9,7 +9,7 @@ import (
 //	* *
 // * * *
 
-func main() {
+func Triangle() {
 	N := 10
 	SSize := N - 1
 	S := strings.Repeat(" ", SSize)

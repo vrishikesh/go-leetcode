@@ -2,7 +2,8 @@ package leetcode
 
 import (
 	"fmt"
-	"queue/queue"
+
+	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 // print all permutations of a string/array using map

@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"queue/queue"
+	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 func main() {
