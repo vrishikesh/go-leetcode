@@ -27,10 +27,11 @@ func main() {
 	// })
 	// leetcode.MColoring(4, 3, 5, [][2]int{{1, 2}, {2, 3}, {3, 4}, {4, 1}, {1, 3}})
 	// leetcode.PalindromePartitioning("aab")
-	leetcode.RatInAMaze([][]int{
-		{1, 0, 0, 0},
-		{1, 1, 0, 1},
-		{1, 1, 0, 0},
-		{0, 1, 1, 1},
-	})
+	// leetcode.RatInAMaze([][]int{
+	// 	{1, 0, 0, 0},
+	// 	{1, 1, 0, 1},
+	// 	{1, 1, 0, 0},
+	// 	{0, 1, 1, 1},
+	// })
+	leetcode.PermutationSequence(4, 9)
 }
