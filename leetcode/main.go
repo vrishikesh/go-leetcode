@@ -33,5 +33,6 @@ func main() {
 	// 	{1, 1, 0, 0},
 	// 	{0, 1, 1, 1},
 	// })
-	leetcode.PermutationSequence(4, 9)
+	// leetcode.PermutationSequence(4, 9)
+	leetcode.NumberOfInversions([]int{5, 4, 3, 2, 1})
 }
