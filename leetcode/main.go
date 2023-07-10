@@ -1,6 +1,8 @@
 package main
 
-import "github.com/vrishikesh/go-leetcode/leetcode/leetcode"
+import (
+	"github.com/vrishikesh/go-leetcode/graph/graph"
+)
 
 func main() {
 	// leetcode.PrintAllSubsequences([]int{1, 2, 1})
@@ -35,5 +37,12 @@ func main() {
 	// })
 	// leetcode.PermutationSequence(4, 9)
 	// leetcode.NumberOfInversions([]int{5, 4, 3, 2, 1})
-	leetcode.IsSubsequence("ace", "abcde")
+	// leetcode.IsSubsequence("ace", "abcde")
+	graph.DfsOfGraph(5, [][]int{
+		{1, 2, 4},
+		{0},
+		{0},
+		{4},
+		{0, 3},
+	})
 }
