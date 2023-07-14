@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/vrishikesh/go-leetcode/leetcode/leetcode"
-)
+import "github.com/vrishikesh/go-leetcode/graph/graph"
 
 func main() {
 	// leetcode.PrintAllSubsequences([]int{1, 2, 1})
@@ -45,9 +43,20 @@ func main() {
 	// 	{4},
 	// 	{0, 3},
 	// })
-	leetcode.RottenOranges([][]int{
-		{0, 1, 2},
-		{0, 1, 2},
-		{2, 1, 1},
+	// leetcode.RottenOranges([][]int{
+	// 	{0, 1, 2},
+	// 	{0, 1, 2},
+	// 	{2, 1, 1},
+	// })
+	graph.DetectCycleBFS([][]int{
+		{1, 2},
+		{0, 5},
+		{0, 3, 4},
+		{2, 6},
+		{2, 7},
+		{1, 7, 8}, // add 7 for cycle
+		{3},
+		{4},
+		{5},
 	})
 }
