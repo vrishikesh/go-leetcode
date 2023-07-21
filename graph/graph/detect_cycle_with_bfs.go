@@ -1,9 +1,8 @@
 package graph
 
 import (
+	"container/list"
 	"fmt"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 type Node struct {
@@ -29,18 +28,19 @@ func DetectCycleBFS(adj [][]int) {
 }
 
 func detectCycle(src int, adj [][]int, v []bool) bool {
-	q := &queue.Queue[Node]{}
-	q.Push(Node{Val: src, ParentVal: -1})
+	q := list.New()
+	q.PushBack(Node{Val: src, ParentVal: -1})
 	v[src] = true
 
-	for !q.IsEmpty() {
-		node := q.Pop()
-		list := adj[node.Val]
+	for q.Len() > 0 {
+		node := q.Front().Value.(Node)
+		q.Remove(q.Front())
+		edges := adj[node.Val]
 		// fmt.Printf("%+2v %+v\n", node, list)
 
-		for _, l := range list {
+		for _, l := range edges {
 			if !v[l] {
-				q.Push(Node{Val: l, ParentVal: node.Val})
+				q.PushBack(Node{Val: l, ParentVal: node.Val})
 				v[l] = true
 			} else if l != node.ParentVal {
 				return true

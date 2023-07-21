@@ -1,9 +1,8 @@
 package leetcode
 
 import (
+	"container/list"
 	"fmt"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 type Point struct {
@@ -18,13 +17,13 @@ func RottenOranges(grid [][]int) int {
 		v[i] = make([]int, C)
 	}
 
-	q := queue.Queue[Point]{}
+	q := list.New()
 	noOfFreshOranges := 0
 
 	for i := 0; i < R; i++ {
 		for j := 0; j < C; j++ {
 			if grid[i][j] == 2 {
-				q.Push(Point{i, j, 0})
+				q.PushBack(Point{i, j, 0})
 				v[i][j] = 2
 			}
 
@@ -38,8 +37,9 @@ func RottenOranges(grid [][]int) int {
 	c := 0
 	dRow := [4]int{-1, 0, +1, 0}
 	dCol := [4]int{0, +1, 0, -1}
-	for !q.IsEmpty() {
-		p := q.Pop()
+	for q.Len() > 0 {
+		p := q.Front().Value.(Point)
+		q.Remove(q.Front())
 
 		for i := 0; i < 4; i++ {
 			nRow := p.x + dRow[i]
@@ -52,7 +52,7 @@ func RottenOranges(grid [][]int) int {
 				if p.t+1 > t {
 					t = p.t + 1
 				}
-				q.Push(Point{nRow, nCol, p.t + 1})
+				q.PushBack(Point{nRow, nCol, p.t + 1})
 				v[nRow][nCol] = 2
 				c += 1
 			}

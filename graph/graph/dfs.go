@@ -1,24 +1,26 @@
 package graph
 
 import (
+	"container/list"
 	"fmt"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 func DfsOfGraph(V int, adj [][]int) []int {
 	v := make([]int, V)
-	q := queue.Queue[int]{}
+	q := list.New()
 
-	dfs(0, adj, v, &q)
-	fmt.Println(q.String())
+	dfs(0, adj, v, q)
+	for e := q.Front(); e != nil; e = e.Next() {
+		fmt.Println(e.Value)
+	}
+	fmt.Println()
 
 	return []int{}
 }
 
-func dfs(node int, adj [][]int, v []int, q *queue.Queue[int]) {
+func dfs(node int, adj [][]int, v []int, q *list.List) {
 	v[node] = 1
-	q.Push(node)
+	q.PushBack(node)
 
 	for _, vertex := range adj[node] {
 		if v[vertex] == 0 {

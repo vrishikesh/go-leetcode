@@ -1,21 +1,23 @@
 package leetcode
 
 import (
+	"container/list"
 	"fmt"
 	"math"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 // DFS O(2^n)
 func NumSquaresDFS(n int) int {
-	var q queue.Queue[int]
 	var f func(int, int, int) int
+	q := list.New()
 
 	f = func(val int, s int, times int) int {
 		if val == 0 {
 			if s == n {
-				fmt.Println(q)
+				for e := q.Front(); e != nil; e = e.Next() {
+					fmt.Printf("%v ", e.Value)
+				}
+				fmt.Println()
 				if q.Len() < times {
 					times = q.Len()
 				}
@@ -23,14 +25,14 @@ func NumSquaresDFS(n int) int {
 			return times
 		}
 
-		q.Push(val * val)
+		q.PushBack(val * val)
 		if s+val*val <= n {
 			if t := f(val, s+val*val, times); t < times {
 				times = t
 			}
 		}
 
-		q.Pop()
+		q.Remove(q.Front())
 		if t := f(val-1, s, times); t < times {
 			times = t
 		}

@@ -1,10 +1,9 @@
 package leetcode
 
 import (
+	"container/list"
 	"fmt"
 	"strings"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 type Cell struct {
@@ -13,13 +12,14 @@ type Cell struct {
 
 func NQueens(n int) [][]string {
 	var ans [][]string
-	var q queue.Queue[Cell]
 	var f func(int)
+	q := list.New()
 
 	f = func(col int) {
 		if col == n {
 			a := make([]string, 4)
-			for _, queen := range q.Iter() {
+			for e := q.Front(); e != nil; e = e.Next() {
+				queen := e.Value.(Cell)
 				a[queen.row] = strings.Repeat(".", queen.col) + "Q" + strings.Repeat(".", n-queen.col-1)
 			}
 			ans = append(ans, a)
@@ -28,7 +28,8 @@ func NQueens(n int) [][]string {
 
 		for row := 0; row < n; row++ {
 			skip := false
-			for _, queen := range q.Iter() {
+			for e := q.Front(); e != nil; e = e.Next() {
+				queen := e.Value.(Cell)
 				if queen.col == col || queen.row == row || queen.col-col == queen.row-row || queen.col-col == row-queen.row {
 					skip = true
 					break
@@ -36,9 +37,9 @@ func NQueens(n int) [][]string {
 			}
 
 			if !skip {
-				q.Push(Cell{row, col})
+				q.PushBack(Cell{row, col})
 				f(col + 1)
-				q.Pop()
+				q.Remove(q.Front())
 			}
 		}
 	}

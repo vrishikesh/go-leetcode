@@ -1,22 +1,24 @@
 package leetcode
 
 import (
+	"container/list"
 	"fmt"
 	"sort"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 // Print all unique combinations of subsequences that sum to k and in lexicographically sorted order
 func CombinationSum2(s []int, k int) {
-	var q queue.Queue[int]
 	var f func(i int, sum int)
+	q := list.New()
 
 	sort.Ints(s)
 
 	f = func(index int, target int) {
 		if target == 0 {
-			fmt.Println(q)
+			for e := q.Front(); e != nil; e = e.Next() {
+				fmt.Printf("%v ", e.Value)
+			}
+			fmt.Println()
 			return
 		}
 
@@ -27,9 +29,9 @@ func CombinationSum2(s []int, k int) {
 			if s[i] > target {
 				break
 			}
-			q.Push(s[i])
+			q.PushBack(s[i])
 			f(i+1, target-s[i])
-			q.Pop()
+			q.Remove(q.Front())
 		}
 	}
 

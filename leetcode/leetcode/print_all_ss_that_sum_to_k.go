@@ -1,27 +1,29 @@
 package leetcode
 
 import (
+	"container/list"
 	"fmt"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 func PrintAllSSThatSumToK(s []int, k int) {
-	var q queue.Queue[int]
 	var f func(i int, sum int)
+	q := list.New()
 
 	f = func(i int, sum int) {
 		if i >= len(s) {
 			if sum == k {
-				fmt.Println(q)
+				for e := q.Front(); e != nil; e = e.Next() {
+					fmt.Printf("%v ", e.Value)
+				}
+				fmt.Println()
 			}
 			return
 		}
 
-		q.Push(s[i])
+		q.PushBack(s[i])
 		f(i+1, sum+s[i])
 
-		q.Pop()
+		q.Remove(q.Front())
 		f(i+1, sum)
 	}
 

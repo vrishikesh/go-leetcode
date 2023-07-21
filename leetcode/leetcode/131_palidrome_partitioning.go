@@ -1,15 +1,14 @@
 package leetcode
 
 import (
+	"container/list"
 	"fmt"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 func PalindromePartitioning(s string) {
-	var ans [][]string
-	var q queue.Queue[string]
+	var ans []*list.List
 	var f func(int)
+	q := list.New()
 
 	f = func(index int) {
 		if index == len(s) {
@@ -19,16 +18,21 @@ func PalindromePartitioning(s string) {
 
 		for i := index; i < len(s); i++ {
 			if isValidPalindrome(s[index : i+1]) {
-				q.Push(s[index : i+1])
+				q.PushBack(s[index : i+1])
 				f(i + 1)
-				q.Pop()
+				q.Remove(q.Front())
 			}
 		}
 	}
 
 	f(0)
 
-	fmt.Println(ans)
+	for _, l := range ans {
+		for e := l.Front(); e != nil; e = e.Next() {
+			fmt.Printf("%v ", e.Value)
+		}
+		fmt.Println()
+	}
 }
 
 func isValidPalindrome(s string) bool {

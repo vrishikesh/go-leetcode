@@ -1,29 +1,31 @@
 package leetcode
 
 import (
+	"container/list"
 	"fmt"
-
-	"github.com/vrishikesh/go-leetcode/queue/queue"
 )
 
 // print all permutations of a string/array using map
 // O(n! * n) S(n)
 func PrintAllPermutationsMap(s []int) {
 	m := make(map[int]bool, len(s))
-	var q queue.Queue[int]
 	var f func(int)
+	q := list.New()
 
 	f = func(index int) {
 		if index == len(s) {
-			fmt.Println(q)
+			for e := q.Front(); e != nil; e = e.Next() {
+				fmt.Printf("%v ", e.Value)
+			}
+			fmt.Println()
 			return
 		}
 		for i := 0; i < len(s); i++ {
 			if !m[i] {
-				q.Push(s[i])
+				q.PushBack(s[i])
 				m[i] = true
 				f(index + 1)
-				q.Pop()
+				q.Remove(q.Front())
 				m[i] = false
 			}
 		}
