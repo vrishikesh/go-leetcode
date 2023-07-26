@@ -1,6 +1,8 @@
 package main
 
-import "github.com/vrishikesh/go-leetcode/graph/graph"
+import (
+	"github.com/vrishikesh/go-leetcode/leetcode/leetcode"
+)
 
 func main() {
 	// leetcode.PrintAllSubsequences([]int{1, 2, 1})
@@ -48,15 +50,24 @@ func main() {
 	// 	{0, 1, 2},
 	// 	{2, 1, 1},
 	// })
-	graph.DetectCycleBFS([][]int{
-		{1, 2},
-		{0, 5},
-		{0, 3, 4},
-		{2, 6},
-		{2, 7},
-		{1, 7, 8}, // add 7 for cycle
-		{3},
-		{4},
-		{5},
-	})
+	// graph.DetectCycleBFS([][]int{
+	// 	{1, 2},
+	// 	{0, 5},
+	// 	{0, 3, 4},
+	// 	{2, 6},
+	// 	{2, 7},
+	// 	{1, 7, 8}, // add 7 for cycle
+	// 	{3},
+	// 	{4},
+	// 	{5},
+	// })
+	/*
+		2
+		1 57
+		0
+		2 47
+		1
+		0
+	*/
+	leetcode.TaxiCost()
 }
