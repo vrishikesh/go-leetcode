@@ -59,7 +59,6 @@ class ListNode {
  * @param {ListNode} head
  */
 var printList = (head) => {
-  /** @type {number[]} */
   let s = "";
   let node = head;
   while (node) {
