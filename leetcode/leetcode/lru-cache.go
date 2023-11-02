@@ -8,7 +8,7 @@ type LRUCache struct {
 	Values   map[int]int
 }
 
-func Constructor(capacity int) LRUCache {
+func LRUCacheConstructor(capacity int) LRUCache {
 	return LRUCache{
 		Capacity: capacity,
 		Recent:   make([]int, capacity),
@@ -40,7 +40,7 @@ func (this *LRUCache) Put(key int, value int) {
  * obj .Put(key,value);
  */
 func Cache() {
-	obj := Constructor(2)
+	obj := LRUCacheConstructor(2)
 	obj.Put(2, 2)                                    // nil
 	obj.Put(1, 1)                                    // nil
 	fmt.Printf("should return 1: %d\n", obj.Get(1))  // returns 1
