@@ -1,8 +1,6 @@
 package main
 
-import (
-	"github.com/vrishikesh/go-leetcode/leetcode/leetcode"
-)
+import "github.com/vrishikesh/go-leetcode/leetcode/leetcode"
 
 func main() {
 	// leetcode.PrintAllSubsequences([]int{1, 2, 1})
@@ -69,5 +67,6 @@ func main() {
 		1
 		0
 	*/
-	leetcode.TaxiCost()
+	// leetcode.TaxiCost()
+	leetcode.MinRemoveToMakeValid();
 }
