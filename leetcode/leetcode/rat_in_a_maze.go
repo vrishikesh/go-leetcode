@@ -4,7 +4,16 @@ import (
 	"fmt"
 )
 
-func RatInAMaze(maze [][]int) {
+func RatInAMaze() {
+	ratInAMaze([][]int{
+		{1, 0, 0, 0},
+		{1, 1, 0, 1},
+		{1, 1, 0, 0},
+		{0, 1, 1, 1},
+	})
+}
+
+func ratInAMaze(maze [][]int) {
 	N := len(maze)
 	dir := "DLRU"
 	dr := []int{1, 0, 0, -1}

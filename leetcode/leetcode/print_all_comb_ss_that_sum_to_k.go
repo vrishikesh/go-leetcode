@@ -5,7 +5,11 @@ import (
 	"fmt"
 )
 
-func PrintAllCombSubsequencesThatSumToK(s []int, k int) {
+func PrintAllCombSubsequencesThatSumToK() {
+	printAllCombSubsequencesThatSumToK([]int{2, 3, 6, 7}, 7)
+}
+
+func printAllCombSubsequencesThatSumToK(s []int, k int) {
 	var f func(i int, sum int)
 	q := list.New()
 

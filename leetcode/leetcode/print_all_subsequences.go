@@ -5,7 +5,11 @@ import (
 	"fmt"
 )
 
-func PrintAllSubsequences(s []int) {
+func PrintAllSubsequences() {
+	printAllSubsequences([]int{1, 2, 1})
+}
+
+func printAllSubsequences(s []int) {
 	var f func(int)
 	q := list.New()
 

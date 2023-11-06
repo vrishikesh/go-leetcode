@@ -2,7 +2,11 @@ package leetcode
 
 import "fmt"
 
-func IsSubsequence(s string, t string) bool {
+func IsSubsequence() {
+	fmt.Println(isSubsequence("ace", "abcde"))
+}
+
+func isSubsequence(s string, t string) bool {
 	T := len(t)
 	S := len(s)
 

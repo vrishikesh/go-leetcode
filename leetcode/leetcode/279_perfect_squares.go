@@ -6,8 +6,12 @@ import (
 	"math"
 )
 
+func NumSquaresDFS() {
+	fmt.Println(numSquaresDFS(12))
+}
+
 // DFS O(2^n)
-func NumSquaresDFS(n int) int {
+func numSquaresDFS(n int) int {
 	var f func(int, int, int) int
 	q := list.New()
 
@@ -50,8 +54,12 @@ func sqrt(n int) int {
 	return int(x)
 }
 
+func NumSquaresDP() {
+	fmt.Println(numSquaresDP(12))
+}
+
 // DP O(n * n^1/2)
-func NumSquaresDP(n int) int {
+func numSquaresDP(n int) int {
 	dp := make([]int, n+1)
 	dp[1] = 1
 

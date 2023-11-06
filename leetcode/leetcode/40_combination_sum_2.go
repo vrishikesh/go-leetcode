@@ -6,8 +6,12 @@ import (
 	"sort"
 )
 
+func CombinationSum2() {
+	combinationSum2([]int{10, 1, 2, 7, 6, 1, 5}, 8)
+}
+
 // Print all unique combinations of subsequences that sum to k and in lexicographically sorted order
-func CombinationSum2(s []int, k int) {
+func combinationSum2(s []int, k int) {
 	var f func(i int, sum int)
 	q := list.New()
 

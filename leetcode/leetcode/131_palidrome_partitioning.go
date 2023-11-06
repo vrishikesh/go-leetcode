@@ -5,7 +5,11 @@ import (
 	"fmt"
 )
 
-func PalindromePartitioning(s string) {
+func PalindromePartitioning() {
+	palindromePartitioning("aab")
+}
+
+func palindromePartitioning(s string) {
 	var ans []*list.List
 	var f func(int)
 	q := list.New()

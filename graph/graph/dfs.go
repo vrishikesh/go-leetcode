@@ -5,7 +5,17 @@ import (
 	"fmt"
 )
 
-func DfsOfGraph(V int, adj [][]int) []int {
+func DfsOfGraph() {
+	fmt.Println(dfsOfGraph(5, [][]int{
+		{1, 2, 4},
+		{0},
+		{0},
+		{4},
+		{0, 3},
+	}))
+}
+
+func dfsOfGraph(V int, adj [][]int) []int {
 	v := make([]int, V)
 	q := list.New()
 

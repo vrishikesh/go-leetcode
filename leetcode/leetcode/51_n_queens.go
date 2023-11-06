@@ -10,7 +10,11 @@ type Cell struct {
 	row, col int
 }
 
-func NQueens(n int) [][]string {
+func NQueens() {
+	fmt.Println(nQueens(4))
+}
+
+func nQueens(n int) [][]string {
 	var ans [][]string
 	var f func(int)
 	q := list.New()

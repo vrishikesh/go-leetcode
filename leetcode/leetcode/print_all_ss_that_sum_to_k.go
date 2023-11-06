@@ -5,7 +5,11 @@ import (
 	"fmt"
 )
 
-func PrintAllSSThatSumToK(s []int, k int) {
+func PrintAllSSThatSumToK() {
+	printAllSSThatSumToK([]int{1, 2, 1}, 2)
+}
+
+func printAllSSThatSumToK(s []int, k int) {
 	var f func(i int, sum int)
 	q := list.New()
 

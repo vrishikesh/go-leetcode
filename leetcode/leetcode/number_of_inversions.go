@@ -2,7 +2,11 @@ package leetcode
 
 import "fmt"
 
-func NumberOfInversions(a []int) {
+func NumberOfInversions() {
+	numberOfInversions([]int{5, 4, 3, 2, 1})
+}
+
+func numberOfInversions(a []int) {
 	N := len(a)
 	temp := make([]int, N)
 	copy(temp, a)

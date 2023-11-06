@@ -2,7 +2,17 @@ package leetcode
 
 import "fmt"
 
-func MColoring(N, M, E int, Edges [][2]int) {
+func MColoring() {
+	mColoring(4, 3, 5, [][2]int{
+		{1, 2},
+		{2, 3},
+		{3, 4},
+		{4, 1},
+		{1, 3},
+	})
+}
+
+func mColoring(N, M, E int, Edges [][2]int) {
 	var f func(n int) int
 	var m = map[int]int{}
 

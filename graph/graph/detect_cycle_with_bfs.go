@@ -9,7 +9,21 @@ type Node struct {
 	Val, ParentVal int
 }
 
-func DetectCycleBFS(adj [][]int) {
+func DetectCycleBFS() {
+	detectCycleBFS([][]int{
+		{1, 2},
+		{0, 5},
+		{0, 3, 4},
+		{2, 6},
+		{2, 7},
+		{1, 7, 8}, // add 7 for cycle
+		{3},
+		{4},
+		{5},
+	})
+}
+
+func detectCycleBFS(adj [][]int) {
 	N := len(adj)
 	v := make([]bool, N)
 	isCycle := false

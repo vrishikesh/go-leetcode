@@ -6,7 +6,11 @@ import (
 	"strings"
 )
 
-func PermutationSequence(n, k int) string {
+func PermutationSequence() {
+	fmt.Println(permutationSequence(4, 9))
+}
+
+func permutationSequence(n, k int) string {
 	var out strings.Builder
 	numbers := []int{}
 	fact := 1

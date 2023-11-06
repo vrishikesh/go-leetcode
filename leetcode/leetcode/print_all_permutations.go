@@ -5,9 +5,13 @@ import (
 	"fmt"
 )
 
+func PrintAllPermutationsMap() {
+	printAllPermutationsMap([]int{1, 2, 3})
+}
+
 // print all permutations of a string/array using map
 // O(n! * n) S(n)
-func PrintAllPermutationsMap(s []int) {
+func printAllPermutationsMap(s []int) {
 	m := make(map[int]bool, len(s))
 	var f func(int)
 	q := list.New()
@@ -34,9 +38,13 @@ func PrintAllPermutationsMap(s []int) {
 	f(0)
 }
 
+func PrintAllPermutationsSwap() {
+	printAllPermutationsSwap([3]int{1, 2, 3})
+}
+
 // print all permutations of a string/array using swap
 // O(n! * n) S(1)
-func PrintAllPermutationsSwap(a [3]int) {
+func printAllPermutationsSwap(a [3]int) {
 	var f func(int, [3]int)
 
 	f = func(index int, a [3]int) {

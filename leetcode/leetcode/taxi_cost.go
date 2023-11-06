@@ -21,6 +21,18 @@ func (q *taxi_q[T]) Pop() T {
 }
 
 func TaxiCost() {
+	/*
+		2
+		1 57
+		0
+		2 47
+		1
+		0
+	*/
+	taxiCost()
+}
+
+func taxiCost() {
 	scanner := bufio.NewScanner(os.Stdin)
 	queue := &taxi_q[int]{}
 

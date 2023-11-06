@@ -9,7 +9,15 @@ type Point struct {
 	x, y, t int
 }
 
-func RottenOranges(grid [][]int) int {
+func RottenOranges() {
+	fmt.Println(rottenOranges([][]int{
+		{0, 1, 2},
+		{0, 1, 2},
+		{2, 1, 1},
+	}))
+}
+
+func rottenOranges(grid [][]int) int {
 	R := len(grid)
 	C := len(grid[0])
 	v := make([][]int, R)

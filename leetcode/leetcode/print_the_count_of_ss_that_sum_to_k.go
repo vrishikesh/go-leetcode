@@ -2,7 +2,11 @@ package leetcode
 
 import "fmt"
 
-func PrintTheCountOfSsThatSumToK(s []int, k int) {
+func PrintTheCountOfSsThatSumToK() {
+	printTheCountOfSsThatSumToK([]int{1, 2, 1}, 2)
+}
+
+func printTheCountOfSsThatSumToK(s []int, k int) {
 	var f func(int, int) int
 
 	f = func(i, sum int) int {
