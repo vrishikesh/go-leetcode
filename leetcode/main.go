@@ -71,5 +71,6 @@ func main() {
 	// leetcode.MinRemoveToMakeValid()
 	// leetcode.ImplementQueueUsingStacks()
 	// leetcode.FindKthLargest()
-	leetcode.SearchRange()
+	// leetcode.SearchRange()
+	leetcode.MaxDepth()
 }
