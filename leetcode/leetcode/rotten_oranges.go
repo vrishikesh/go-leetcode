@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-type Point struct {
+type RO_Point struct {
 	x, y, t int
 }
 
@@ -31,7 +31,7 @@ func rottenOranges(grid [][]int) int {
 	for i := 0; i < R; i++ {
 		for j := 0; j < C; j++ {
 			if grid[i][j] == 2 {
-				q.PushBack(Point{i, j, 0})
+				q.PushBack(RO_Point{i, j, 0})
 				v[i][j] = 2
 			}
 
@@ -46,7 +46,7 @@ func rottenOranges(grid [][]int) int {
 	dRow := [4]int{-1, 0, +1, 0}
 	dCol := [4]int{0, +1, 0, -1}
 	for q.Len() > 0 {
-		p := q.Front().Value.(Point)
+		p := q.Front().Value.(RO_Point)
 		q.Remove(q.Front())
 
 		for i := 0; i < 4; i++ {
@@ -60,7 +60,7 @@ func rottenOranges(grid [][]int) int {
 				if p.t+1 > t {
 					t = p.t + 1
 				}
-				q.PushBack(Point{nRow, nCol, p.t + 1})
+				q.PushBack(RO_Point{nRow, nCol, p.t + 1})
 				v[nRow][nCol] = 2
 				c += 1
 			}

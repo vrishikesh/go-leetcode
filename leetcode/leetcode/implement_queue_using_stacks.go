@@ -2,31 +2,9 @@ package leetcode
 
 import "fmt"
 
-type mq_stack []int
-
-func (st *mq_stack) Len() int {
-	return len(*st)
-}
-
-func (st *mq_stack) Push(x int) {
-	(*st) = append((*st), x)
-}
-
-func (st *mq_stack) Pop() int {
-	N := st.Len()
-	x := (*st)[N-1]
-	(*st) = (*st)[:N-1]
-	return x
-}
-
-func (st *mq_stack) Peek() int {
-	N := st.Len()
-	return (*st)[N-1]
-}
-
 type MyQueue struct {
-	st1 mq_stack
-	st2 mq_stack
+	st1 Stack[int]
+	st2 Stack[int]
 }
 
 func Constructor() MyQueue {

@@ -4,23 +4,6 @@ import (
 	"fmt"
 )
 
-type mrtmvp_stack []int
-
-func (st *mrtmvp_stack) Len() int {
-	return len(*st)
-}
-
-func (st *mrtmvp_stack) Push(i int) {
-	(*st) = append((*st), i)
-}
-
-func (st *mrtmvp_stack) Pop() int {
-	N := st.Len()
-	s := (*st)[N-1]
-	(*st) = (*st)[:N-1]
-	return s
-}
-
 func MinRemoveToMakeValid() {
 	fmt.Println(minRemoveToMakeValid("lee(t(c)o)de"))
 	fmt.Println(minRemoveToMakeValid("ab(c)d"))
@@ -28,7 +11,7 @@ func MinRemoveToMakeValid() {
 }
 
 func minRemoveToMakeValid(s string) string {
-	st := mrtmvp_stack{}
+	st := &Stack[int]{}
 	ss := []rune(s)
 	i := 0
 

@@ -8,18 +8,6 @@ import (
 	"strings"
 )
 
-type taxi_q[T comparable] []T
-
-func (q *taxi_q[T]) Push(v T) {
-	*q = append(*q, v)
-}
-
-func (q *taxi_q[T]) Pop() T {
-	v := (*q)[0]
-	*q = (*q)[1:]
-	return v
-}
-
 func TaxiCost() {
 	/*
 		2
@@ -34,7 +22,7 @@ func TaxiCost() {
 
 func taxiCost() {
 	scanner := bufio.NewScanner(os.Stdin)
-	queue := &taxi_q[int]{}
+	queue := &Queue[int]{}
 
 	for scanner.Scan() {
 		input := scanner.Text()
@@ -47,24 +35,24 @@ func taxiCost() {
 				fmt.Printf("could not convert string to num: V = %s\n", v)
 				return
 			}
-			queue.Push(V)
+			queue.Enqueue(V)
 		}
 	}
 
 	// no of test cases
-	T := queue.Pop()
+	T := queue.Dequeue()
 
 	for i := 0; i < T; i++ {
 		// no of days
-		N := queue.Pop()
+		N := queue.Dequeue()
 		// cost of taxi
-		X := queue.Pop()
+		X := queue.Dequeue()
 		cost := 0
 		prevD := 0
 
 		for j := 0; j < N; j++ {
 			// raining on this day?
-			D := queue.Pop()
+			D := queue.Dequeue()
 			if D == 1 || prevD == 1 {
 				cost += X
 			}

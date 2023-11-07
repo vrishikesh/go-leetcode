@@ -2,36 +2,13 @@ package leetcode
 
 import "fmt"
 
-type LO_TreeNode struct {
-	Val   int
-	Left  *LO_TreeNode
-	Right *LO_TreeNode
-}
-
-type LO_Queue []*LO_TreeNode
-
-func (q *LO_Queue) Len() int {
-	return len(*q)
-}
-
-func (q *LO_Queue) Enqueue(x *LO_TreeNode) {
-	*q = append(*q, x)
-}
-
-func (q *LO_Queue) Dequeue() *LO_TreeNode {
-	cp := *q
-	x := cp[0]
-	*q = cp[1:]
-	return x
-}
-
 func LevelOrder() {
 	{
-		three := &LO_TreeNode{Val: 3}
-		nine := &LO_TreeNode{Val: 9}
-		twenty := &LO_TreeNode{Val: 20}
-		fifteen := &LO_TreeNode{Val: 15}
-		seven := &LO_TreeNode{Val: 7}
+		three := &TreeNode{Val: 3}
+		nine := &TreeNode{Val: 9}
+		twenty := &TreeNode{Val: 20}
+		fifteen := &TreeNode{Val: 15}
+		seven := &TreeNode{Val: 7}
 
 		three.Left = nine
 		three.Right = twenty
@@ -42,7 +19,7 @@ func LevelOrder() {
 	}
 
 	{
-		one := &LO_TreeNode{Val: 1}
+		one := &TreeNode{Val: 1}
 
 		fmt.Println(levelOrder(one))
 	}
@@ -52,13 +29,13 @@ func LevelOrder() {
 	}
 }
 
-func levelOrder(root *LO_TreeNode) [][]int {
+func levelOrder(root *TreeNode) [][]int {
 	if root == nil {
 		return [][]int{}
 	}
 
 	ans := [][]int{}
-	q := &LO_Queue{}
+	q := &Queue[*TreeNode]{}
 	q.Enqueue(root)
 
 	for q.Len() > 0 {

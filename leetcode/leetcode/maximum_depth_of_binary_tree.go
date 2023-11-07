@@ -2,19 +2,13 @@ package leetcode
 
 import "fmt"
 
-type MD_TreeNode struct {
-	Val   int
-	Left  *MD_TreeNode
-	Right *MD_TreeNode
-}
-
 func MaxDepth() {
 	{
-		three := &MD_TreeNode{Val: 3}
-		nine := &MD_TreeNode{Val: 9}
-		twenty := &MD_TreeNode{Val: 20}
-		fifteen := &MD_TreeNode{Val: 15}
-		seven := &MD_TreeNode{Val: 7}
+		three := &TreeNode{Val: 3}
+		nine := &TreeNode{Val: 9}
+		twenty := &TreeNode{Val: 20}
+		fifteen := &TreeNode{Val: 15}
+		seven := &TreeNode{Val: 7}
 
 		three.Left = nine
 		three.Right = twenty
@@ -25,8 +19,8 @@ func MaxDepth() {
 	}
 
 	{
-		one := &MD_TreeNode{Val: 1}
-		two := &MD_TreeNode{Val: 2}
+		one := &TreeNode{Val: 1}
+		two := &TreeNode{Val: 2}
 
 		one.Right = two
 
@@ -38,12 +32,12 @@ func MaxDepth() {
 	}
 
 	{
-		one := &MD_TreeNode{Val: 1}
+		one := &TreeNode{Val: 1}
 		fmt.Println(maxDepth(one))
 	}
 }
 
-func maxDepth(root *MD_TreeNode) int {
+func maxDepth(root *TreeNode) int {
 	if root == nil {
 		return 0
 	}
@@ -52,7 +46,7 @@ func maxDepth(root *MD_TreeNode) int {
 	return maximumDepth
 }
 
-func dfs(node *MD_TreeNode, depth int, maximumDepth *int) {
+func dfs(node *TreeNode, depth int, maximumDepth *int) {
 	if node == nil {
 		return
 	}
