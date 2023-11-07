@@ -42,17 +42,19 @@ func maxDepth(root *TreeNode) int {
 		return 0
 	}
 	maximumDepth := 1
-	dfs(root, 1, &maximumDepth)
-	return maximumDepth
-}
 
-func dfs(node *TreeNode, depth int, maximumDepth *int) {
-	if node == nil {
-		return
+	var dfs func(*TreeNode, int)
+	dfs = func(node *TreeNode, depth int) {
+		if node == nil {
+			return
+		}
+		if depth > maximumDepth {
+			maximumDepth = depth
+		}
+		dfs(node.Left, depth+1)
+		dfs(node.Right, depth+1)
 	}
-	if depth > *maximumDepth {
-		*maximumDepth = depth
-	}
-	dfs(node.Left, depth+1, maximumDepth)
-	dfs(node.Right, depth+1, maximumDepth)
+	dfs(root, 1)
+
+	return maximumDepth
 }
