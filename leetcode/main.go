@@ -33,5 +33,6 @@ func main() {
 	// leetcode.SearchRange()
 	// leetcode.MaxDepth()
 	// leetcode.LevelOrder()
-	leetcode.RightSideView()
+	// leetcode.RightSideView()
+	leetcode.CountNodes()
 }
