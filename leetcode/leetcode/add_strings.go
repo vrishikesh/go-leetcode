@@ -11,8 +11,8 @@ func AddStrings() {
 func addStrings(num1 string, num2 string) string {
 	p1 := len(num1) - 1
 	p2 := len(num2) - 1
+	sb := make([]byte, 0, p1+p2+2)
 	var carry byte
-	var sb []byte
 
 	for p1 >= 0 || p2 >= 0 {
 		var b1 byte
@@ -25,18 +25,22 @@ func addStrings(num1 string, num2 string) string {
 		}
 		b3 := b1 + b2 + carry
 		if b3 > 9 {
-			carry = b3 / 10
+			carry = 1
 			b3 = b3 % 10
 		} else {
 			carry = 0
 		}
-		sb = append([]byte{b3 + '0'}, sb...)
+		sb = append(sb, b3+'0')
 		p1--
 		p2--
 	}
-
 	if carry > 0 {
-		sb = append([]byte{carry + '0'}, sb...)
+		sb = append(sb, carry+'0')
 	}
+	n := len(sb)
+	for i := 0; i < n/2; i++ {
+		sb[i], sb[n-1-i] = sb[n-1-i], sb[i]
+	}
+
 	return string(sb)
 }
