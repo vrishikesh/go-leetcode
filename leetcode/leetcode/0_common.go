@@ -1,20 +1,20 @@
 package leetcode
 
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
+type TreeNode[T comparable] struct {
+	Val   T
+	Left  *TreeNode[T]
+	Right *TreeNode[T]
 }
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
+type ListNode[T comparable] struct {
+	Val  T
+	Next *ListNode[T]
 }
 
-type DoublyListNode struct {
-	Val  int
-	Next *DoublyListNode
-	Prev *DoublyListNode
+type DoublyListNode[T comparable] struct {
+	Val  T
+	Next *DoublyListNode[T]
+	Prev *DoublyListNode[T]
 }
 
 type Queue[T comparable] []T

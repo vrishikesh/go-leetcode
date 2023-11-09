@@ -4,14 +4,14 @@ import "fmt"
 
 func RightSideView() {
 	{
-		one := &TreeNode{Val: 1}
-		two := &TreeNode{Val: 2}
-		three := &TreeNode{Val: 3}
-		four := &TreeNode{Val: 4}
-		five := &TreeNode{Val: 5}
-		six := &TreeNode{Val: 6}
-		seven := &TreeNode{Val: 7}
-		eight := &TreeNode{Val: 8}
+		one := &TreeNode[int]{Val: 1}
+		two := &TreeNode[int]{Val: 2}
+		three := &TreeNode[int]{Val: 3}
+		four := &TreeNode[int]{Val: 4}
+		five := &TreeNode[int]{Val: 5}
+		six := &TreeNode[int]{Val: 6}
+		seven := &TreeNode[int]{Val: 7}
+		eight := &TreeNode[int]{Val: 8}
 
 		one.Left = two
 		one.Right = three
@@ -28,11 +28,11 @@ func RightSideView() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
-		two := &TreeNode{Val: 2}
-		three := &TreeNode{Val: 3}
-		five := &TreeNode{Val: 5}
-		four := &TreeNode{Val: 4}
+		one := &TreeNode[int]{Val: 1}
+		two := &TreeNode[int]{Val: 2}
+		three := &TreeNode[int]{Val: 3}
+		five := &TreeNode[int]{Val: 5}
+		four := &TreeNode[int]{Val: 4}
 
 		one.Left = two
 		one.Right = three
@@ -43,8 +43,8 @@ func RightSideView() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
-		three := &TreeNode{Val: 3}
+		one := &TreeNode[int]{Val: 1}
+		three := &TreeNode[int]{Val: 3}
 
 		one.Right = three
 
@@ -52,8 +52,8 @@ func RightSideView() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
-		two := &TreeNode{Val: 2}
+		one := &TreeNode[int]{Val: 1}
+		two := &TreeNode[int]{Val: 2}
 
 		one.Left = two
 
@@ -61,7 +61,7 @@ func RightSideView() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
+		one := &TreeNode[int]{Val: 1}
 
 		fmt.Println(rightSideView(one)) // [1]
 	}
@@ -71,14 +71,14 @@ func RightSideView() {
 	}
 }
 
-func rightSideView(root *TreeNode) []int {
+func rightSideView(root *TreeNode[int]) []int {
 	ans := []int{}
 	if root == nil {
 		return ans
 	}
 
-	// var bfs = func(root *TreeNode) {
-	// 	q := &Queue[*TreeNode]{}
+	// var bfs = func(root *TreeNode[int]) {
+	// 	q := &Queue[*TreeNode[int]]{}
 	// 	q.Enqueue(root)
 	// 	for q.Len() > 0 {
 	// 		n := q.Len()
@@ -97,8 +97,8 @@ func rightSideView(root *TreeNode) []int {
 	// 	}
 	// }
 
-	var dfs func(root *TreeNode, depth int)
-	dfs = func(root *TreeNode, depth int) {
+	var dfs func(root *TreeNode[int], depth int)
+	dfs = func(root *TreeNode[int], depth int) {
 		if root == nil {
 			return
 		}

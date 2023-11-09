@@ -7,12 +7,12 @@ import (
 
 func CountNodes() {
 	{
-		one := &TreeNode{Val: 1}
-		two := &TreeNode{Val: 2}
-		three := &TreeNode{Val: 3}
-		four := &TreeNode{Val: 4}
-		five := &TreeNode{Val: 5}
-		six := &TreeNode{Val: 6}
+		one := &TreeNode[int]{Val: 1}
+		two := &TreeNode[int]{Val: 2}
+		three := &TreeNode[int]{Val: 3}
+		four := &TreeNode[int]{Val: 4}
+		five := &TreeNode[int]{Val: 5}
+		six := &TreeNode[int]{Val: 6}
 
 		one.Left = two
 		one.Right = three
@@ -28,16 +28,16 @@ func CountNodes() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
+		one := &TreeNode[int]{Val: 1}
 
 		fmt.Println(countNodes(one)) // 1
 	}
 
 	{
-		one := &TreeNode{Val: 1}
-		two := &TreeNode{Val: 2}
-		three := &TreeNode{Val: 3}
-		four := &TreeNode{Val: 4}
+		one := &TreeNode[int]{Val: 1}
+		two := &TreeNode[int]{Val: 2}
+		three := &TreeNode[int]{Val: 3}
+		four := &TreeNode[int]{Val: 4}
 
 		one.Left = two
 		one.Right = three
@@ -48,7 +48,7 @@ func CountNodes() {
 }
 
 /** Striver's Solution */
-// func countNodes(node *TreeNode) int {
+// func countNodes(node *TreeNode[int]) int {
 // 	if node == nil {
 // 		return 0
 // 	}
@@ -60,7 +60,7 @@ func CountNodes() {
 // 	return 1 + countNodes(node.Left) + countNodes(node.Right)
 // }
 
-// func getLeftHeight(node *TreeNode) int {
+// func getLeftHeight(node *TreeNode[int]) int {
 // 	height := 0
 // 	for node.Left != nil {
 // 		height += 1
@@ -69,7 +69,7 @@ func CountNodes() {
 // 	return height
 // }
 
-// func getRightHeight(node *TreeNode) int {
+// func getRightHeight(node *TreeNode[int]) int {
 // 	height := 0
 // 	for node.Right != nil {
 // 		height += 1
@@ -79,7 +79,7 @@ func CountNodes() {
 // }
 
 /** Solution from Udemy */
-func countNodes(root *TreeNode) int {
+func countNodes(root *TreeNode[int]) int {
 	if root == nil {
 		return 0
 	}
@@ -98,7 +98,7 @@ func countNodes(root *TreeNode) int {
 	return upperCount + left + 1
 }
 
-func nodeExists(idxToFind int, height int, node *TreeNode) bool {
+func nodeExists(idxToFind int, height int, node *TreeNode[int]) bool {
 	left, right, count := 0, int(math.Pow(2, float64(height)))-1, 0
 	for count < height {
 		mid := int(math.Ceil(float64(left+right) / 2))
@@ -114,7 +114,7 @@ func nodeExists(idxToFind int, height int, node *TreeNode) bool {
 	return node != nil
 }
 
-func getTreeHeight(node *TreeNode) int {
+func getTreeHeight(node *TreeNode[int]) int {
 	height := 0
 	for node.Left != nil {
 		height += 1
@@ -124,7 +124,7 @@ func getTreeHeight(node *TreeNode) int {
 }
 
 /** My Initial Solution */
-// func countNodes(root *TreeNode) int {
+// func countNodes(root *TreeNode[int]) int {
 // 	if root == nil {
 // 		return 0
 // 	}
@@ -140,8 +140,8 @@ func getTreeHeight(node *TreeNode) int {
 // 	noOfNodes := int(math.Pow(2, float64(height))) - 1
 // 	depths := 0
 // 	found := false
-// 	var dfs func(node *TreeNode, depth, position int)
-// 	dfs = func(node *TreeNode, depth, position int) {
+// 	var dfs func(node *TreeNode[int], depth, position int)
+// 	dfs = func(node *TreeNode[int], depth, position int) {
 // 		if found {
 // 			return
 // 		}

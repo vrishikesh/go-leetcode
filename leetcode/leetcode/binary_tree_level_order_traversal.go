@@ -4,11 +4,11 @@ import "fmt"
 
 func LevelOrder() {
 	{
-		three := &TreeNode{Val: 3}
-		nine := &TreeNode{Val: 9}
-		twenty := &TreeNode{Val: 20}
-		fifteen := &TreeNode{Val: 15}
-		seven := &TreeNode{Val: 7}
+		three := &TreeNode[int]{Val: 3}
+		nine := &TreeNode[int]{Val: 9}
+		twenty := &TreeNode[int]{Val: 20}
+		fifteen := &TreeNode[int]{Val: 15}
+		seven := &TreeNode[int]{Val: 7}
 
 		three.Left = nine
 		three.Right = twenty
@@ -19,7 +19,7 @@ func LevelOrder() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
+		one := &TreeNode[int]{Val: 1}
 
 		fmt.Println(levelOrder(one))
 	}
@@ -29,13 +29,13 @@ func LevelOrder() {
 	}
 }
 
-func levelOrder(root *TreeNode) [][]int {
+func levelOrder(root *TreeNode[int]) [][]int {
 	if root == nil {
 		return [][]int{}
 	}
 
 	ans := [][]int{}
-	q := &Queue[*TreeNode]{}
+	q := &Queue[*TreeNode[int]]{}
 	q.Enqueue(root)
 
 	for q.Len() > 0 {

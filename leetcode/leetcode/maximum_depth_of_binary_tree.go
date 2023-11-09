@@ -4,11 +4,11 @@ import "fmt"
 
 func MaxDepth() {
 	{
-		three := &TreeNode{Val: 3}
-		nine := &TreeNode{Val: 9}
-		twenty := &TreeNode{Val: 20}
-		fifteen := &TreeNode{Val: 15}
-		seven := &TreeNode{Val: 7}
+		three := &TreeNode[int]{Val: 3}
+		nine := &TreeNode[int]{Val: 9}
+		twenty := &TreeNode[int]{Val: 20}
+		fifteen := &TreeNode[int]{Val: 15}
+		seven := &TreeNode[int]{Val: 7}
 
 		three.Left = nine
 		three.Right = twenty
@@ -19,8 +19,8 @@ func MaxDepth() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
-		two := &TreeNode{Val: 2}
+		one := &TreeNode[int]{Val: 1}
+		two := &TreeNode[int]{Val: 2}
 
 		one.Right = two
 
@@ -32,19 +32,19 @@ func MaxDepth() {
 	}
 
 	{
-		one := &TreeNode{Val: 1}
+		one := &TreeNode[int]{Val: 1}
 		fmt.Println(maxDepth(one))
 	}
 }
 
-func maxDepth(root *TreeNode) int {
+func maxDepth(root *TreeNode[int]) int {
 	if root == nil {
 		return 0
 	}
 	maximumDepth := 1
 
-	var dfs func(*TreeNode, int)
-	dfs = func(node *TreeNode, depth int) {
+	var dfs func(*TreeNode[int], int)
+	dfs = func(node *TreeNode[int], depth int) {
 		if node == nil {
 			return
 		}

@@ -35,5 +35,6 @@ func main() {
 	// leetcode.LevelOrder()
 	// leetcode.RightSideView()
 	// leetcode.CountNodes()
-	leetcode.AddStrings()
+	// leetcode.AddStrings()
+	leetcode.CreateSet()
 }
