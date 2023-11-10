@@ -37,5 +37,6 @@ func main() {
 	// leetcode.CountNodes()
 	// leetcode.AddStrings()
 	// leetcode.CreateSet()
-	leetcode.IsValidBST()
+	// leetcode.IsValidBST()
+	leetcode.ImplementPriorityQueue()
 }
