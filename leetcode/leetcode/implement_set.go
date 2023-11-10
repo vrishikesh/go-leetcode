@@ -79,8 +79,17 @@ func (s *set[T]) Remove(x T) {
 	delete(s.m, x)
 }
 
-func (s *set[T]) Iter() *DoublyListNode[T] {
-	return s.head
+func (s *set[T]) Chan() chan T {
+	ch := make(chan T)
+	go func() {
+		defer close(ch)
+		curr := s.head
+		for curr != nil {
+			ch <- curr.Val
+			curr = curr.Next
+		}
+	}()
+	return ch
 }
 
 func CreateSet() {
@@ -89,15 +98,10 @@ func CreateSet() {
 	s.Add(2)
 	s.Add(1)
 	s.Add(3)
-	s.Remove(1)
-	s.Remove(3)
-	s.Remove(2)
-	curr := s.Iter()
-	for curr != nil {
-		fmt.Println(curr.Val)
-		curr = curr.Next
-	}
-	for x := range s.m {
+	// s.Remove(1)
+	// s.Remove(3)
+	// s.Remove(2)
+	for x := range s.Chan() {
 		fmt.Println(x)
 	}
 }
