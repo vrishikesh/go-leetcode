@@ -36,5 +36,6 @@ func main() {
 	// leetcode.RightSideView()
 	// leetcode.CountNodes()
 	// leetcode.AddStrings()
-	leetcode.CreateSet()
+	// leetcode.CreateSet()
+	leetcode.IsValidBST()
 }
