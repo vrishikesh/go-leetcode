@@ -39,5 +39,6 @@ func main() {
 	// leetcode.CreateSet()
 	// leetcode.IsValidBST()
 	// leetcode.ImplementPriorityQueue()
-	leetcode.ImplementFirstNonRepeatedNumber()
+	// leetcode.ImplementFirstNonRepeatedNumber()
+	leetcode.TwoDimensionalArrayDFSTraversal()
 }
