@@ -40,5 +40,6 @@ func main() {
 	// leetcode.IsValidBST()
 	// leetcode.ImplementPriorityQueue()
 	// leetcode.ImplementFirstNonRepeatedNumber()
-	leetcode.TwoDimensionalArrayDFSTraversal()
+	// leetcode.TwoDimensionalArrayDFSTraversal()
+	leetcode.TwoDimensionalArrayBFSTraversal()
 }
