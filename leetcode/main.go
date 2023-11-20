@@ -42,5 +42,6 @@ func main() {
 	// leetcode.ImplementFirstNonRepeatedNumber()
 	// leetcode.TwoDimensionalArrayDFSTraversal()
 	// leetcode.TwoDimensionalArrayBFSTraversal()
-	leetcode.NumberOfIslands()
+	// leetcode.NumberOfIslands()
+	leetcode.OrangesRotting()
 }
