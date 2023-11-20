@@ -43,5 +43,6 @@ func main() {
 	// leetcode.TwoDimensionalArrayDFSTraversal()
 	// leetcode.TwoDimensionalArrayBFSTraversal()
 	// leetcode.NumberOfIslands()
-	leetcode.OrangesRotting()
+	// leetcode.OrangesRotting()
+	leetcode.WallsAndGates()
 }
