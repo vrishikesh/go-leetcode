@@ -45,5 +45,6 @@ func main() {
 	// leetcode.NumberOfIslands()
 	// leetcode.OrangesRotting()
 	// leetcode.WallsAndGates()
-	leetcode.GraphTraversalBFS()
+	// leetcode.GraphTraversalBFS()
+	leetcode.GraphTraversalDFS()
 }
