@@ -46,5 +46,6 @@ func main() {
 	// leetcode.OrangesRotting()
 	// leetcode.WallsAndGates()
 	// leetcode.GraphTraversalBFS()
-	leetcode.GraphTraversalDFS()
+	// leetcode.GraphTraversalDFS()
+	leetcode.NumOfMinutes()
 }
