@@ -47,5 +47,6 @@ func main() {
 	// leetcode.WallsAndGates()
 	// leetcode.GraphTraversalBFS()
 	// leetcode.GraphTraversalDFS()
-	leetcode.NumOfMinutes()
+	// leetcode.NumOfMinutes()
+	leetcode.CanFinish()
 }
