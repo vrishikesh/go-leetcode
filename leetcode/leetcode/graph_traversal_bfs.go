@@ -8,7 +8,7 @@ func GraphTraversalBFS() {
 			{1, 3},
 			{0},
 			{3, 8},
-			{0, 2, 4, 5},
+			{0, 4, 5, 2},
 			{3, 6},
 			{3},
 			{4, 7},
@@ -28,11 +28,10 @@ func graphTraversalBFS(adj [][]int) []int {
 
 	for q.Len() > 0 {
 		vertex := q.Dequeue()
-		visited[vertex] = true
-		list := adj[vertex]
 		values = append(values, vertex)
+		visited[vertex] = true
 
-		for _, v := range list {
+		for _, v := range adj[vertex] {
 			if !visited[v] {
 				q.Enqueue(v)
 			}
