@@ -1,39 +1,40 @@
 package leetcode
 
 import (
+	"container/heap"
 	"fmt"
 	"math"
 )
 
 func NetworkDelayTime() {
-	{
-		times := [][]int{
-			{2, 1, 1},
-			{2, 3, 1},
-			{3, 4, 1},
-		}
-		n := 4
-		k := 2
-		fmt.Println(networkDelayTime(times, n, k)) // 2
-	}
+	// {
+	// 	times := [][]int{
+	// 		{2, 1, 1},
+	// 		{2, 3, 1},
+	// 		{3, 4, 1},
+	// 	}
+	// 	n := 4
+	// 	k := 2
+	// 	fmt.Println(networkDelayTime(times, n, k)) // 2
+	// }
 
-	{
-		times := [][]int{
-			{1, 2, 1},
-		}
-		n := 2
-		k := 1
-		fmt.Println(networkDelayTime(times, n, k)) // 1
-	}
+	// {
+	// 	times := [][]int{
+	// 		{1, 2, 1},
+	// 	}
+	// 	n := 2
+	// 	k := 1
+	// 	fmt.Println(networkDelayTime(times, n, k)) // 1
+	// }
 
-	{
-		times := [][]int{
-			{1, 2, 1},
-		}
-		n := 2
-		k := 2
-		fmt.Println(networkDelayTime(times, n, k)) // -1
-	}
+	// {
+	// 	times := [][]int{
+	// 		{1, 2, 1},
+	// 	}
+	// 	n := 2
+	// 	k := 2
+	// 	fmt.Println(networkDelayTime(times, n, k)) // -1
+	// }
 
 	{
 		times := [][]int{
@@ -52,6 +53,34 @@ func NetworkDelayTime() {
 	}
 }
 
+type NetworkDelayTimePQ []int
+
+func (pq *NetworkDelayTimePQ) Len() int {
+	return len(*pq)
+}
+
+func (pq *NetworkDelayTimePQ) Less(i, j int) bool {
+	c := *pq
+	return c[i] < c[j]
+}
+
+func (pq *NetworkDelayTimePQ) Swap(i, j int) {
+	c := *pq
+	c[i], c[j] = c[j], c[i]
+}
+
+func (pq *NetworkDelayTimePQ) Pop() any {
+	cp := *pq
+	l := pq.Len()
+	x := cp[l-1]
+	*pq = cp[:l-1]
+	return x
+}
+
+func (pq *NetworkDelayTimePQ) Push(x any) {
+	*pq = append(*pq, x.(int))
+}
+
 func networkDelayTime(times [][]int, n int, k int) int {
 	adj := make([][][2]int, n+1)
 	for _, v := range times {
@@ -62,14 +91,15 @@ func networkDelayTime(times [][]int, n int, k int) int {
 		distances[i] = math.MaxInt
 	}
 
-	q := &Queue[int]{}
-	q.Enqueue(k)
+	pq := NetworkDelayTimePQ{}
+	heap.Init(&pq)
+	pq.Push(k)
 	distances[k] = 0
-	for q.Len() > 0 {
-		v := q.Dequeue()
+	for pq.Len() > 0 {
+		v := pq.Pop().(int)
 		for _, adjV := range adj[v] {
 			if distances[v]+adjV[1] < distances[adjV[0]] {
-				q.Enqueue(adjV[0])
+				pq.Push(adjV[0])
 				distances[adjV[0]] = distances[v] + adjV[1]
 			}
 		}
