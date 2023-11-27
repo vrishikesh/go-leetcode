@@ -4,37 +4,38 @@ import (
 	"container/heap"
 	"fmt"
 	"math"
+	"slices"
 )
 
 func NetworkDelayTime() {
-	// {
-	// 	times := [][]int{
-	// 		{2, 1, 1},
-	// 		{2, 3, 1},
-	// 		{3, 4, 1},
-	// 	}
-	// 	n := 4
-	// 	k := 2
-	// 	fmt.Println(networkDelayTime(times, n, k)) // 2
-	// }
+	{
+		times := [][]int{
+			{2, 1, 1},
+			{2, 3, 1},
+			{3, 4, 1},
+		}
+		n := 4
+		k := 2
+		fmt.Println(networkDelayTime(times, n, k)) // 2
+	}
 
-	// {
-	// 	times := [][]int{
-	// 		{1, 2, 1},
-	// 	}
-	// 	n := 2
-	// 	k := 1
-	// 	fmt.Println(networkDelayTime(times, n, k)) // 1
-	// }
+	{
+		times := [][]int{
+			{1, 2, 1},
+		}
+		n := 2
+		k := 1
+		fmt.Println(networkDelayTime(times, n, k)) // 1
+	}
 
-	// {
-	// 	times := [][]int{
-	// 		{1, 2, 1},
-	// 	}
-	// 	n := 2
-	// 	k := 2
-	// 	fmt.Println(networkDelayTime(times, n, k)) // -1
-	// }
+	{
+		times := [][]int{
+			{1, 2, 1},
+		}
+		n := 2
+		k := 2
+		fmt.Println(networkDelayTime(times, n, k)) // -1
+	}
 
 	{
 		times := [][]int{
@@ -53,32 +54,35 @@ func NetworkDelayTime() {
 	}
 }
 
-type NetworkDelayTimePQ []int
+type NetworkDelayTimePQ struct {
+	heap      []int
+	distances []int
+}
 
 func (pq *NetworkDelayTimePQ) Len() int {
-	return len(*pq)
+	return len(pq.heap)
 }
 
 func (pq *NetworkDelayTimePQ) Less(i, j int) bool {
-	c := *pq
-	return c[i] < c[j]
+	d := pq.distances
+	return d[i] < d[j]
 }
 
 func (pq *NetworkDelayTimePQ) Swap(i, j int) {
-	c := *pq
-	c[i], c[j] = c[j], c[i]
+	h := pq.heap
+	h[i], h[j] = h[j], h[i]
 }
 
 func (pq *NetworkDelayTimePQ) Pop() any {
-	cp := *pq
-	l := pq.Len()
-	x := cp[l-1]
-	*pq = cp[:l-1]
+	h := pq.heap
+	n := pq.Len()
+	x := h[n-1]
+	pq.heap = h[:n-1]
 	return x
 }
 
 func (pq *NetworkDelayTimePQ) Push(x any) {
-	*pq = append(*pq, x.(int))
+	pq.heap = append(pq.heap, x.(int))
 }
 
 func networkDelayTime(times [][]int, n int, k int) int {
@@ -86,35 +90,32 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	for _, v := range times {
 		adj[v[0]] = append(adj[v[0]], [2]int{v[1], v[2]})
 	}
+
 	distances := make([]int, n+1)
 	for i := 1; i <= n; i++ {
 		distances[i] = math.MaxInt
 	}
 
-	pq := NetworkDelayTimePQ{}
+	pq := NetworkDelayTimePQ{[]int{}, distances}
 	heap.Init(&pq)
 	pq.Push(k)
 	distances[k] = 0
+
 	for pq.Len() > 0 {
 		v := pq.Pop().(int)
 		for _, adjV := range adj[v] {
 			if distances[v]+adjV[1] < distances[adjV[0]] {
-				pq.Push(adjV[0])
 				distances[adjV[0]] = distances[v] + adjV[1]
+				pq.Push(adjV[0])
 			}
 		}
 	}
 
-	maxDistance := 0
-	for _, v := range distances {
-		if v == math.MaxInt {
-			return -1
-		} else {
-			maxDistance = max(maxDistance, v)
-		}
+	maxD := slices.Max(distances)
+	if maxD == math.MaxInt {
+		return -1
 	}
-
-	return maxDistance
+	return maxD
 }
 
 // func networkDelayTimeDFS(times [][]int, n int, k int) int {
