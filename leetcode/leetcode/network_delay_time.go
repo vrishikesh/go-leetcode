@@ -1,7 +1,6 @@
 package leetcode
 
 import (
-	"container/heap"
 	"fmt"
 	"math"
 	"slices"
@@ -16,7 +15,7 @@ func NetworkDelayTime() {
 		}
 		n := 4
 		k := 2
-		fmt.Println(networkDelayTime(times, n, k)) // 2
+		fmt.Printf("%d\n\n", networkDelayTime(times, n, k)) // 2
 	}
 
 	{
@@ -25,7 +24,7 @@ func NetworkDelayTime() {
 		}
 		n := 2
 		k := 1
-		fmt.Println(networkDelayTime(times, n, k)) // 1
+		fmt.Printf("%d\n\n", networkDelayTime(times, n, k)) // 1
 	}
 
 	{
@@ -34,7 +33,7 @@ func NetworkDelayTime() {
 		}
 		n := 2
 		k := 2
-		fmt.Println(networkDelayTime(times, n, k)) // -1
+		fmt.Printf("%d\n\n", networkDelayTime(times, n, k)) // -1
 	}
 
 	{
@@ -50,7 +49,7 @@ func NetworkDelayTime() {
 		}
 		n := 5
 		k := 1
-		fmt.Println(networkDelayTime(times, n, k)) // 14
+		fmt.Printf("%d\n\n", networkDelayTime(times, n, k)) // 14
 	}
 }
 
@@ -85,29 +84,29 @@ func (pq *NetworkDelayTimePQ) Push(x any) {
 	pq.heap = append(pq.heap, x.(int))
 }
 
+// The Bellman-Ford
 func networkDelayTime(times [][]int, n int, k int) int {
-	adj := make([][][2]int, n+1)
-	for _, v := range times {
-		adj[v[0]] = append(adj[v[0]], [2]int{v[1], v[2]})
-	}
-
 	distances := make([]int, n+1)
 	for i := 1; i <= n; i++ {
 		distances[i] = math.MaxInt
 	}
-
-	pq := NetworkDelayTimePQ{[]int{}, distances}
-	heap.Init(&pq)
-	pq.Push(k)
 	distances[k] = 0
 
-	for pq.Len() > 0 {
-		v := pq.Pop().(int)
-		for _, adjV := range adj[v] {
-			if distances[v]+adjV[1] < distances[adjV[0]] {
-				distances[adjV[0]] = distances[v] + adjV[1]
-				pq.Push(adjV[0])
+	for i := 0; i < n-1; i++ {
+		count := 0
+		for _, edge := range times {
+			source := edge[0]
+			target := edge[1]
+			weight := edge[2]
+
+			if distances[source] < math.MaxInt &&
+				distances[source]+weight < distances[target] {
+				distances[target] = distances[source] + weight
+				count += 1
 			}
+		}
+		if count == 0 {
+			break
 		}
 	}
 
@@ -118,7 +117,42 @@ func networkDelayTime(times [][]int, n int, k int) int {
 	return maxD
 }
 
-// func networkDelayTimeDFS(times [][]int, n int, k int) int {
+// Dijkstra
+// func networkDelayTime(times [][]int, n int, k int) int {
+// 	adj := make([][][2]int, n+1)
+// 	for _, v := range times {
+// 		adj[v[0]] = append(adj[v[0]], [2]int{v[1], v[2]})
+// 	}
+
+// 	distances := make([]int, n+1)
+// 	for i := 1; i <= n; i++ {
+// 		distances[i] = math.MaxInt
+// 	}
+
+// 	pq := NetworkDelayTimePQ{[]int{}, distances}
+// 	heap.Init(&pq)
+// 	pq.Push(k)
+// 	distances[k] = 0
+
+// 	for pq.Len() > 0 {
+// 		v := pq.Pop().(int)
+// 		for _, adjV := range adj[v] {
+// 			if distances[v]+adjV[1] < distances[adjV[0]] {
+// 				distances[adjV[0]] = distances[v] + adjV[1]
+// 				pq.Push(adjV[0])
+// 			}
+// 		}
+// 	}
+
+// 	maxD := slices.Max(distances)
+// 	if maxD == math.MaxInt {
+// 		return -1
+// 	}
+// 	return maxD
+// }
+
+// DFS
+// func networkDelayTime(times [][]int, n int, k int) int {
 // 	const MAX_DISTANCE = 101
 // 	adj := make([][][2]int, n+1)
 // 	for _, v := range times {
