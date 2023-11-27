@@ -49,6 +49,7 @@ func main() {
 	// leetcode.GraphTraversalDFS()
 	// leetcode.NumOfMinutes()
 	// leetcode.CanFinish()
-	leetcode.NetworkDelayTime()
+	// leetcode.NetworkDelayTime()
 	// leetcode.LetterCombinations()
+	leetcode.MinCostClimbingStairs()
 }
