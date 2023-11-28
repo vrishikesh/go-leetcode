@@ -71,7 +71,7 @@ func printBoard(board [][]byte) {
 			if board[i][j] == '.' {
 				fmt.Print(" .")
 			} else {
-				fmt.Print(" ", board[i][j])
+				fmt.Print(" ", board[i][j]-'0')
 			}
 		}
 		fmt.Println()
