@@ -17,6 +17,11 @@ type DoublyListNode[T comparable] struct {
 	Prev *DoublyListNode[T]
 }
 
+type AnaryNode[T comparable] struct {
+	Val      T
+	Children []*AnaryNode[T]
+}
+
 type Queue[T comparable] []T
 
 func (q *Queue[T]) Len() int {

@@ -54,5 +54,6 @@ func main() {
 	// leetcode.MinCostClimbingStairs()
 	// leetcode.KnightProbability()
 	// leetcode.SudokuSolver()
-	leetcode.MonarchySolver()
+	// leetcode.MonarchySolver()
+	leetcode.ImplementTrie()
 }
