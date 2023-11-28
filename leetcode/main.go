@@ -51,5 +51,6 @@ func main() {
 	// leetcode.CanFinish()
 	// leetcode.NetworkDelayTime()
 	// leetcode.LetterCombinations()
-	leetcode.MinCostClimbingStairs()
+	// leetcode.MinCostClimbingStairs()
+	leetcode.KnightProbability()
 }
