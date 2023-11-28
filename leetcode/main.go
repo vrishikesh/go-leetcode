@@ -55,5 +55,6 @@ func main() {
 	// leetcode.KnightProbability()
 	// leetcode.SudokuSolver()
 	// leetcode.MonarchySolver()
-	leetcode.ImplementTrie()
+	// leetcode.ImplementTrie()
+	leetcode.MaxSubArray()
 }
