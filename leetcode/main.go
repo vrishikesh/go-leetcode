@@ -56,5 +56,7 @@ func main() {
 	// leetcode.SudokuSolver()
 	// leetcode.MonarchySolver()
 	// leetcode.ImplementTrie()
-	leetcode.MaxSubArray()
+	// leetcode.MaxSubArray()
+	// leetcode.LongestCommonSubsequence()
+	leetcode.SetZeroes()
 }
