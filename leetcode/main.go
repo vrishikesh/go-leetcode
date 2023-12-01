@@ -59,5 +59,6 @@ func main() {
 	// leetcode.MaxSubArray()
 	// leetcode.LongestCommonSubsequence()
 	// leetcode.SetZeroes()
-	leetcode.GetRow()
+	// leetcode.GetRow()
+	leetcode.CountBits()
 }
