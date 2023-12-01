@@ -8,7 +8,7 @@ func GetRow() {
 	fmt.Println(getRow(1)) // 1 1
 }
 
-// top down
+// bottom up
 func getRow(rowIndex int) []int {
 	X := make([]int, rowIndex+1)
 	Y := make([]int, rowIndex+1)

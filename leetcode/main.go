@@ -60,5 +60,6 @@ func main() {
 	// leetcode.LongestCommonSubsequence()
 	// leetcode.SetZeroes()
 	// leetcode.GetRow()
-	leetcode.CountBits()
+	// leetcode.CountBits()
+	leetcode.Tribonacci()
 }

@@ -12,6 +12,7 @@ func CountBits() {
 	fmt.Println(countBits(0))
 }
 
+// bottom up
 func countBits(n int) []int {
 	if n == 0 {
 		return []int{0}
