@@ -61,5 +61,6 @@ func main() {
 	// leetcode.SetZeroes()
 	// leetcode.GetRow()
 	// leetcode.CountBits()
-	leetcode.Tribonacci()
+	// leetcode.Tribonacci()
+	leetcode.CountSubstrings()
 }
